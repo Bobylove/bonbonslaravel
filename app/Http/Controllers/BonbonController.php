@@ -31,23 +31,18 @@ class BonbonController extends Controller
 
 	}
 
-
-	public function getShow(){
-
-	}
-
 	public function postSell($id){
 		$bonbons = Bonbon::find($id);
 		$bonbons->qty--;
 		$bonbons->save();
-		return back();
+		return response($bonbons->qty);
 	}
 
 	public function postRestock($id){
 		$bonbons = Bonbon::find($id);
 		$bonbons->qty++ ;
 		$bonbons->save();
-		return back();
+		return response($bonbons->qty);
 	}
 
 
